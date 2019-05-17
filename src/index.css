@@ -11,3 +11,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+html {
+  background-color: #eeeeee;
+}
+
+.tech {
+  margin-top: 10px;
+  width: 100%;
+  line-height: 26px;
+}
+.tech-tag {
+  font-weight: 300;
+  font-size: 0.8rem;
+  color: #fff;
+  background-color: #212121 ;
+  border-radius: 2px;
+  padding: 3px 6px;
+  text-align: center;
+  line-height: 22px;
+  margin-right: 5px;
+}
+.tech-tag:hover {
+  background-color: #424242;
+  cursor: pointer;
+}

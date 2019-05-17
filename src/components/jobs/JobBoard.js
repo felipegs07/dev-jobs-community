@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import JobList from './JobList';
+import JobFilters from './JobFilters';
 
 class JobBoard extends Component {
     state = {
         jobs: []
     }
+
     componentDidMount(){
-        axios.get('https://api.github.com/repos/frontendbr/vagas/issues?state=open&per_page=100&page')
+        axios.get('https://api.github.com/repos/frontendbr/vagas/issues?state=open')
         .then((res) => {
             console.log(res);
 
@@ -23,6 +25,7 @@ class JobBoard extends Component {
             <div className="container">
                 <div className="row">
                     <JobList jobs={this.state.jobs} />
+                    <JobFilters />
                 </div>
             </div>
         )

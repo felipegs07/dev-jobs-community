@@ -3,11 +3,11 @@ import JobSummary from './JobSummary';
 
 const JobList = (props) => {
     return (
-        <div className="col s12 m10">
+        <div className="col s12 m8">
             {
                 props.jobs.map(job => {
                     return (
-                        <JobSummary title={job.title} url={job.url} key={job.id} />
+                        <JobSummary title={job.title} url={job.html_url} key={job.id} tags={job.labels} date={job.created_at}/>
                     )
                 })
             }
