@@ -20,19 +20,22 @@ html {
   margin-top: 10px;
   width: 100%;
   line-height: 26px;
+  overflow: hidden;
 }
 .tech-tag {
+  display: inline-block;
   font-weight: 300;
   font-size: 0.8rem;
   color: #fff;
-  background-color: #212121 ;
   border-radius: 2px;
   padding: 3px 6px;
   text-align: center;
   line-height: 22px;
   margin-right: 5px;
+  margin-bottom: 5px;
 }
+
 .tech-tag:hover {
-  background-color: #424242;
   cursor: pointer;
+  background-color: #000000
 }

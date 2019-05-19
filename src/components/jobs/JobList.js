@@ -7,7 +7,7 @@ const JobList = (props) => {
             {
                 props.jobs.map(job => {
                     return (
-                        <JobSummary title={job.title} url={job.html_url} key={job.id} tags={job.labels} date={job.created_at}/>
+                        <JobSummary title={job.title} url={job.html_url} key={job.id} tags={job.labels} date={job.created_at} handleFilter={props.handleFilter} />
                     )
                 })
             }

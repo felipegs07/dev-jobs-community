@@ -1,6 +1,7 @@
 import React from 'react';
 import * as moment from 'moment';
 import 'moment/locale/pt-br';
+import Filter from './Filter';
 
 const JobSummary = (props) => {
     return (
@@ -12,7 +13,7 @@ const JobSummary = (props) => {
                     {
                         props.tags.map(tag => {
                             return (
-                                <span className="tech-tag" key={ tag.id }>{ tag.name }</span>
+                                <Filter key={tag.id} id={tag.id} name={tag.name} handleFilter={props.handleFilter} />
                             )
                         })
                     }

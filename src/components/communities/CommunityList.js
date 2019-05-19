@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import CommSummary from './CommSummary';
 
-class CommunityList extends Component {
-    
-    render (){
-        return (
-            <div className="row">
-                <CommSummary />
-                <CommSummary />
-                <CommSummary />
-                <CommSummary />
-            </div>
-        )
-    }
+const CommunityList = (props) => {
+    return (
+        <div className="row">
+            {
+                props.list.map(community => {
+                    return (
+                        <CommSummary key={community.id} img={community.img} name={community.name} id={community.id} path={community.path} />
+                    )
+                })
+            
+            }
+        </div>
+    )
 }
 
 export default CommunityList;
