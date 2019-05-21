@@ -6,7 +6,6 @@ class Filter extends Component {
   }
 
   handleActiveChange = () => {
-    const active = this.state.active;
     this.setState({
       active: !this.state.active
     });

@@ -3,19 +3,18 @@ import axios from 'axios';
 import JobList from './JobList';
 import JobFilters from './JobFilters';
 import JobSearch from './JobSearch';
+import { Redirect } from 'react-router-dom';
 
 class JobBoard extends Component {
-    constructor(props){
-        super(props);
-        console.log(props);
-    }
+   
     state = {
         jobs: [],
         labels: [],
         filters: {
             text: '',
             labels: []
-        }
+        },
+        notFoundAPI: false
     }
 
     handleApiGetLabels = () => {
@@ -31,13 +30,18 @@ class JobBoard extends Component {
     handleApiGetJobs = () => {
         axios.get('https://api.github.com/repos/' + this.props.match.params.id + '/vagas/issues?state=open')
         .then((res) => {
-            //console.log(res);
-
+            console.log(res);
             this.setState({
                 jobs: res.data
             });
+        })
+        .catch((err) => {
+            this.setState({
+                notFoundAPI: true
+            });
         });
     }
+
 
     handleJobSearch = (searchText) => {
         const updatedFilters = {
@@ -137,10 +141,13 @@ class JobBoard extends Component {
 
     render(){
         const filteredJobs = this.handleFilterJobs(this.state.jobs, this.state.filters);
+        if (this.state.notFoundAPI) return <Redirect to="/" />
+
         return (
             <div className="container">
                 <div className="row">
                     <JobSearch jobSearch={this.handleJobSearch} />
+                    <div className="center"><h4 style={{marginLeft: '10px'}} className="left-align"><span className="teal-text text-lighten-1">{this.state.jobs.length}</span> vagas disponíveis</h4></div>
                     <JobFilters labels={this.state.labels} handleFilter={this.handleFilterChange} />
                     <JobList jobs={filteredJobs} handleFilter={this.handleFilterChange} />
                 </div>
