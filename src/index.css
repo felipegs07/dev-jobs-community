@@ -48,3 +48,24 @@ html {
   max-height: 60px;
   padding: 10px 0;
 }
+
+.bg-preloader {
+  width: 100vw;
+  height: 100vh;
+  background-color: #eeeeee;
+  z-index: 9999999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.bg-preloader-center {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
